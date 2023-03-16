@@ -14,4 +14,4 @@ class Posts extends Component {
     
 }
 
-export default withRouter(Posts);
+export default withRouter(Posts); // wrap Post class with withRouter in order to be able to use hooks

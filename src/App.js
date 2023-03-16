@@ -25,6 +25,7 @@ const App = () => {
 
           <ul className="nav nav-pills">
             <li className="nav-item">
+              {/* Navlink has isActive property which Link doesn't have */}
               <NavLink 
                 to="/" 
                 className={({isActive})=> isActive ? 'nav-link active':'nav-link' }
@@ -55,6 +56,8 @@ const App = () => {
           <Route path="posts" element={<Posts/>}></Route>
           <Route path="posts/:id" element={<PostItem/>}></Route>
           {/* <Route path="profile" element={<Profile />}></Route> */}
+          {/*  if redirection has to be done form FE we can do it like this
+          //  based on user variable it will go to Profile / or to HOME (/) */}
           <Route path="profile" element={
             user ?<Profile />:<Navigate replace to="/" />}
           >
@@ -63,6 +66,8 @@ const App = () => {
             <Route path="guests" element={<Guests/>}></Route>
             <Route path="admins" element={<Admins/>}></Route>
           </Route>
+
+          {/* NO MATCH ROUTES HANDLING */}
           <Route
             path="*"
             element={
